@@ -364,7 +364,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 }
 .ck.ck-editor {
     position: relative;
-    width: 100%;
+    width: 100% !important;
 }
 .ck.ck-toolbar {
     border: none !important;
@@ -482,7 +482,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     }
     .ck.ck-editor {
         position: relative;
-        width: 100%;
+        width: 100% !important;
     }
     .ck .ck-toolbar {
         border: none !important;
@@ -514,7 +514,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     }
     .ck.ck-editor {
         position: relative;
-        width: 100%;
+        width: 100% !important;
     }
     
     
