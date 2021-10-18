@@ -429,29 +429,29 @@
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <p class="modal-title">Replying: <p>adesola.adebayo@dangotegroup.com</p></p>
-                                                        <button type="button" style="display: none;" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                                        </button>
+                                                        <p class="modal-title">Replying: <p class="replyto">adesola.adebayo@dangotegroup.com</p></p>
+                                                        <!-- <button type="button" style="display: none;" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        </button> -->
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="row">
                                                             <div class="card card-body">
                                                                 <p>from: </p>
-                                                                <p>adesola.adebayo@dangotegroup.com</p>
+                                                                <p id="replyfrom" > adesola.adebayo@dangotegroup.com</p>
                                                                 <p>Cc Bcc</p>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="card card-body">
                                                                 <p>To: </p>
-                                                                <p>adesola.adebayo@dangotegroup.com</p>
+                                                                <p class="replyto">adesola.adebayo@dangotegroup.com</p>
                                                                 
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="card card-body">
                                                                 <p>Subject: </p>
-                                                                <input type="text" name="" id="">
+                                                                <input type="text" name="" id="reply_sub">
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -460,7 +460,13 @@
                                                             </div>
                                                         </div>
 
+
                                                         
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="mb-3">
+                                                            <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply</a>
+                                                        </div>
                                                     </div>
                                                 </div><!-- /.modal-content -->
                                             </div><!-- /.modal-dialog -->
@@ -481,7 +487,7 @@
         
         
                                             <tbody id="request_table">
-                                            <tr class="accordion" onclick="toge(this, 0)">
+                                            <!-- <tr class="accordion" onclick="toge(this, 0)">
                                                 <td>
                                                     Omolara Adebayo Olushola
                                                     <div class="card-body opt">
@@ -495,17 +501,18 @@
                                                     Dangote Group 
                                                     <div class="card-body opt">
                                                         <div class="row">
-                                                            <div class="col-md-7">
+                                                            <div class="col-md-8">
+                                                                <h5>Request Subject</h5>
                                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est </p>
                                                                 <center>
                                                                     <div class="mb-3">
-                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply Now</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(0)" data-bs-target=".bs-example-modal-center">Reply Now</a>
                                                                     </div>
                                                                 </center>
                                                                 
                                                             
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="card card-body">
                                                                     <img src="assets/images/layouts/layout-1.jpg" alt="" srcset="">
                                                                 </div>
@@ -555,17 +562,18 @@
                                                     Dangote Group 
                                                     <div class="card-body opt">
                                                         <div class="row">
-                                                            <div class="col-md-7">
+                                                            <div class="col-md-8">
+                                                                <h5>Request Subject</h5>
                                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est </p>
                                                                 <center>
                                                                     <div class="mb-3">
-                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply Now</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(0)" data-bs-target=".bs-example-modal-center">Reply Now</a>
                                                                     </div>
                                                                 </center>
                                                                 
                                                             
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="card card-body">
                                                                     <img src="assets/images/layouts/layout-1.jpg" alt="" srcset="">
                                                                 </div>
@@ -614,17 +622,18 @@
                                                     Dangote Group 
                                                     <div class="card-body opt">
                                                         <div class="row">
-                                                            <div class="col-md-7">
+                                                            <div class="col-md-8">
+                                                                <h5>Request Subject</h5>
                                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est </p>
                                                                 <center>
                                                                     <div class="mb-3">
-                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply Now</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(0)" data-bs-target=".bs-example-modal-center">Reply Now</a>
                                                                     </div>
                                                                 </center>
                                                                 
                                                             
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="card card-body">
                                                                     <img src="assets/images/layouts/layout-1.jpg" alt="" srcset="">
                                                                 </div>
@@ -673,17 +682,18 @@
                                                     Dangote Group 
                                                     <div class="card-body opt">
                                                         <div class="row">
-                                                            <div class="col-md-7">
+                                                            <div class="col-md-8">
+                                                                <h5>Request Subject</h5>
                                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est </p>
                                                                 <center>
                                                                     <div class="mb-3">
-                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply Now</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(0)" data-bs-target=".bs-example-modal-center">Reply Now</a>
                                                                     </div>
                                                                 </center>
                                                                 
                                                             
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="card card-body">
                                                                     <img src="assets/images/layouts/layout-1.jpg" alt="" srcset="">
                                                                 </div>
@@ -732,17 +742,18 @@
                                                     Dangote Group 
                                                     <div class="card-body opt">
                                                         <div class="row">
-                                                            <div class="col-md-7">
+                                                            <div class="col-md-8">
+                                                                <h5>Request Subject</h5>
                                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est </p>
                                                                 <center>
                                                                     <div class="mb-3">
-                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Reply Now</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(0)" data-bs-target=".bs-example-modal-center">Reply Now</a>
                                                                     </div>
                                                                 </center>
                                                                 
                                                             
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <div class="card card-body">
                                                                     <img src="assets/images/layouts/layout-1.jpg" alt="" srcset="">
                                                                 </div>
@@ -776,7 +787,7 @@
                                                 
                                                 
                                                 
-                                            </tr>
+                                            </tr> -->
                                             
                                             
                                             

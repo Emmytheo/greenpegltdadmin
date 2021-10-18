@@ -8,4 +8,8 @@ exports.Requests = class Requests extends Service {
       this.Model = db.collection('requests');
     });
   }
+  async get(args){
+
+    
+  }
 };

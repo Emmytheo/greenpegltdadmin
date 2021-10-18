@@ -4,7 +4,7 @@ const hooks = require('./requests.hooks');
 
 module.exports = function (app) {
   const options = {
-    paginate: app.get('paginate')
+    // paginate: app.get('paginate')
   };
   const requests = new Requests(options, app);
 

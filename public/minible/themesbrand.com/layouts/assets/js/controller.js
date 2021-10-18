@@ -168,10 +168,12 @@ var requests = [
     'name': 'Omolara Adebayo Olushola',
     'company': 'Dangote Group',
     'phone': '08156100211',
-    'email': 'adesola.adebayo@dangotegroup.com',
+    'email': 'chidi.adebayo@dangotegroup.com',
     'shrt-name': 'Omolara Adebayo O',
     'date': 'May 14, 2021',
     'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -182,6 +184,8 @@ var requests = [
     'shrt-name': 'Omolara Adebayo O',
     'date': 'May 14, 2021',
     'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -192,6 +196,8 @@ var requests = [
     'shrt-name': 'Omolara Adebayo O',
     'date': 'May 14, 2021',
     'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -202,15 +208,8 @@ var requests = [
     'shrt-name': 'Omolara Adebayo O',
     'date': 'May 14, 2021',
     'time': '1:54',
-    'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
-  },{
-    'name': 'Omolara Adebayo Olushola',
-    'company': 'Dangote Group',
-    'phone': '08156100211',
-    'email': 'adesola.adebayo@dangotegroup.com',
-    'shrt-name': 'Omolara Adebayo O',
-    'date': 'May 14, 2021',
-    'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -221,8 +220,24 @@ var requests = [
     'shrt-name': 'Omolara Adebayo O',
     'date': 'May 14, 2021',
     'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
-  }
+  },
+  {
+    'name': 'Omolara Adebayo Olushola',
+    'company': 'Dangote Group',
+    'phone': '08156100211',
+    'email': 'adesola.adebayo@dangotegroup.com',
+    'shrt-name': 'Omolara Adebayo O',
+    'date': 'May 14, 2021',
+    'time': '1:54',
+    'subject': 'Request Subject',
+    'image': 'assets/images/layouts/layout-1.jpg',
+    'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
+  },
+  
+  
 
 ]
 
@@ -249,9 +264,16 @@ var render = function(page, component, data, parent){
             html += data[t].time;
             html += `</p></span></div></td><td class="max">`
             html += data[t].company;
-            html += `<div class="card-body opt"><p>`;
+            
+            html += `<div class="card-body opt"><div class="row"><div class="col-md-8"><h5>`;
+            html += data[t].subject;
+            html += `</h5><p>`;
             html += data[t].content;
-            html += `</p><center><div class="mb-3"><a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light">Reply Now</a></div></center></div></td><td class="min">`;
+            html += `</p><center><div class="mb-3"><a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw(`;
+            html += t;
+            html += `)" data-bs-target=".bs-example-modal-center">Reply Now</a></div></center></div><div class="col-md-4"><div class="card card-body"><img src="`
+            html += data[t].image;
+            html += `" alt="" srcset=""></div></div></div></div></td><td class="min">`
             html += data[t].phone;
             html += `<div class="card-body opt"></div></td><td class="min">`;
             html += data[t].email;
@@ -280,7 +302,7 @@ switch(page){
         .catch( error => {
             console.error( error );
         } );
-      // render('request', 'request-table', requests, 'request_table');
+      render('request', 'request-table', requests, 'request_table');
       break;
         
     }
@@ -409,6 +431,18 @@ for(var l = 0; l < reqflx.children.length; l++){
     }
     th.classList.value = ['req-active'];
   });
+}
+
+function replynw(ele){
+  var replyto = document.getElementsByClassName('replyto');
+  var replyfrom = document.getElementById('replyfrom');
+  var reply_sub = document.getElementById('reply_sub');
+  
+  for(var h = 0; h < replyto.length; h++){
+    replyto[h].innerText = requests[ele].email;
+  }
+  replyfrom.innerText = 'olomije.ezekiel@greenpegltd.com';
+  reply_sub.value = 'Request Subject';
 }
 
 
