@@ -90,9 +90,12 @@
     color: #6A7D8E;
 
 }
+.container-fluid{
+    margin-top: 30px;
+}
 
 /* ************************************************************************** */
-/* *******************************Requests and DataTables ************************************/
+/* *******************************Requests and DataTables ********************/
 /* *************************************************************************** */
 
 .page-content h4{
@@ -102,7 +105,7 @@
     font-weight: bolder;
     line-height: 22px;
     color: #6A7D8E;
-    padding: 20px;
+    padding: 5px 20px;
 }
 
 .form-check-input:checked {
@@ -191,7 +194,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 
 
 .catdat{
-    padding: 1px 5px;
+    padding: 5px;
     margin: 0px;
     flex-wrap: wrap;
     list-style-type: none;
@@ -213,7 +216,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     border: 1px solid rgba(180, 189, 189, 0.3);
     box-sizing: border-box;
     border-radius: 2px;
-    padding: 6px 10px;
+    /* padding: 6px 10px; */
     padding-right: 30px;
 }
 .filter-btn{
@@ -222,7 +225,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
-    padding: 6px 10px;
+    /* padding: 6px 10px; */
 }
 .flx{
     display: inline-flex;
@@ -243,6 +246,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     flex-wrap: wrap;
     list-style-type: none;
     display: inline-flex;
+    padding: 5px;
 }
 .catdate li{
     margin: 1px 5px;
@@ -384,6 +388,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     /* line-height: 10px; */
 }
 
+#layout-wrapper > div.main-content > div > div > div:nth-child(2) > div > div > div > div.modal.fade.bs-example-modal-center.show > div > div > div.modal-body > div:nth-child(4) > div > div.ck.ck-reset.ck-editor.ck-rounded-corners > div.ck.ck-editor__main > div > p{
+    color: black;
+}
+
 .modal-body .row .card p:nth-child(1), .modal-body .row .card p:nth-child(3) {
     font-family: Product Sans;
     font-style: normal;
@@ -398,6 +406,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 
 
 @media (min-width:500.98px){
+    /****** General *********/
     .navbar-header{
         padding: 0px 20px;
     }
@@ -415,7 +424,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     .uxer{
         margin-right: 20px;
     }
-    
+    /****** Requests *********/
     .opt{
         display: none;
         margin: 20px 5px;
@@ -487,10 +496,9 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     .ck .ck-toolbar {
         border: none !important;
         background-color: transparent !important;
-        
-       
-        
-    
+    }
+    #layout-wrapper > div.main-content > div > div > div:nth-child(2) > div > div > div > div.modal.fade.bs-example-modal-center.show > div > div > div.modal-body > div:nth-child(4) > div > div.ck.ck-reset.ck-editor.ck-rounded-corners > div.ck.ck-editor__main > div > p{
+        color: black;
     }
 }
 
@@ -516,11 +524,33 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
         position: relative;
         width: 100% !important;
     }
+    .vertical-menu{
+        display: block;
+    }
+    .main-content{
+        margin-left: 250px;
+    }
+    #page-topbar{
+        left: 250px;
+    }
     
     
 }
 
+@media (max-width:1300.98px){
+    .vertical-menu{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0px;
+    }
+    #page-topbar{
+        left: 0px;
+    }
+
+}
 
 /* ****************************************************************************/
-/* *******************************         ************************************/
+/* *******************************Products ************************************/
 /* ****************************************************************************/
+

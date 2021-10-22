@@ -12,6 +12,13 @@
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
+        
+        <!-- Plugins css -->
+        <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- DataTables -->
+        <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
         <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -20,7 +27,7 @@
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-        <link rel="stylesheet" href="assets/css/style.css" >
+        <link rel="stylesheet" href="assets/css/products-style.css" >
         <style>
             @font-face {
                 font-family: 'Product Sans';
@@ -46,7 +53,7 @@
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/greenpegs/logotype_greenpeg_white 6.png" alt="" height="22">
+                                    <img src="assets/images/greenpegs/logotype.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
                                     <img src="assets/images/greenpegs/logotype_greenpeg_white 6.png" alt="" height="20">
@@ -338,22 +345,618 @@
                     <div class="container-fluid">
 
                         <!-- start page title -->
+                        <div class="row mb-2 home-body">
+                            <div class="col-md-4">
+                                <h4 class="mb-0">Products</h4>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-inline float-md-end ">
+                                    <div class="position-relative">
+                                        <ul class="catdat">
+                                            <li>
+                                                <span>
+                                                    <select class="form-control form-select select2">
+                                                        <option>Select Category <i class="mdi mdi-magnify search-icon"></i></option>
+                                                        <option value="EL">Electronic</option>
+                                                        <option value="FA">Fashion</option>
+                                                        <option value="FI">Fitness</option>
+                                                    </select>
+                                                </span>
+                                            </li>
+                                            
+                                            <li>
+                                                <span>
+                                                    <div class="mb-3">
+                                                        <a href="javascript:void(0);" class="btn gp-grey filter-btn waves-effect waves-light">Filter</a>
+                                                    </div>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-inline float-md-start ">
+                                    <div class="position-relative">
+                                        <ul class="catdate">
+                                            <li>
+                                                <span>
+                                                    <input type="search" name="" id="searchprods">
+                                                </span>
+                                            </li>
+                                            
+                                            
+                                            <li>
+                                                <span>
+                                                    <div class="mb-3">
+                                                        <a href="javascript:void(0);" class="btn gp-green filter-btn waves-effect waves-light">Search Products</a>
+                                                    </div>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+
+
+                        </div>
+                        <!-- end page title -->
+
                         <div class="row">
                             
                             <div class="col-12 home">
-                                <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0">Products</h4>
-                                    
-                                </div>
                                 <div class="card home-body">
                                     <div class="card-body ">
+                                        <div class="modal fade oem-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    
+                                                    <div class="modal-body">
+                                                        <div class="row minus_padding">
+                                                            <div class="card-body minus_padding">
+                                                                <h4 class="addnewpropcat">Add new product category (OEM)</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card-body minus_padding_top">
+                                                                    <textarea name="" class="dark-bg" id="" placeholder="OEM name" cols="30" rows="1"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card-body minus_padding_top inline">
+                                                                    <textarea name="" class="dark-bg" id="OEMlogo" placeholder="OEM logo" cols="30" rows="1"></textarea>
+                                                                    <div class="mb-0">
+                                                                        <a href="javascript:void(0);" class="btn gp-grey oeme-btn waves-effect waves-light"><i class="uil uil-export"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card card-body justify-content-flex-end minus_padding inline float-end">
+                                                                    <div class="mb-0">
+                                                                        <a href="javascript:void(0);" class="btn gp-white oeme-cancel-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".oem-modal">Cancel</a>
+                                                                    </div>
+                                                                    <div class="mb-0">
+                                                                        <a href="javascript:void(0);" class="btn gp-green oeme-complete-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".oem-modal">Complete</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+
+                                                        
+                                                    </div>
+                                                    
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                        <div class="modal fade product-details" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <br>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="card card-body minus_padding minus_margin">
+                                                                    <div class="row">
+                                                                        <div class="card-body view-prod-img minus_padding">
+                                                                            <center>
+                                                                                
+                                                                                <img src="./assets/images/greenpegs/fire-pump-set1 3.png" alt="">
+                                                                                <br><br>
+                                                                                <h6>Image Caption</h6>
+                                                                            </center>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="card card-body minus_padding minus_margin view-prod-details">
+                                                                    <div class="row">
+                                                                        <div class="card-body  minus_padding ">
+                                                                            <h1>Dosing Pump</h1>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="card-body minus_padding ">
+                                                                                <div class="row">
+
+                                                                                    <p class="mb-0">Part number:</p>
+                                                                                    <h5 class="mb-3">91047126TKIWYSVBAG91047126</h5>
+    
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <p class="mb-0">Product category:</p>
+                                                                                    <h5 class="mb-3">Oil & Gas</h5>
+    
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <p class="mb-0">SKU</p>
+                                                                                    <h5 class="mb-3">91047126</h5>
+    
+                                                                                </div>
+    
+                                                                            </div>
+                                                                        </div>
+                                                                        
+
+                                                                    </div>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card card-body justify-content-flex-start minus_padding inline float-start">
+                                                                    <div class="mb-0">
+                                                                        <a href="javascript:void(0);" class="btn gp-green view-edit-btn waves-effect waves-light">Edit</a>
+                                                                    </div>
+                                                                    <div class="mb-0">
+                                                                        <a href="javascript:void(0);" class="btn gp-white oeme-cancel-btn waves-effect waves-light">Cancel</a>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+
+
+                                                        
+                                                    </div>
+                                                    
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                        
+
+                                        <center>
+                                            <div class="card-body product-table">
+                                                <table id="datatable" class="table dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th >Name</th>
+                                                        <th></th>
+                                                        <th>Category</th>
+                                                        <th>SKU</th>
+                                                        <th>Date Added</th>
+                                                        
+                                                        
+        
+                                                        
+                                                    </tr>
+                                                    </thead>
+                
+                
+                                                    <tbody id="product_table">
+                                                        <tr class="pt">
+                                                            <td>
+                                                                
+                                                                <div class="card-body pt-product">
+                                                                    <div class="row">
+                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <div class="card-body pt-name">
+                                                                    <div class="row mb-0">
+                                                                        <p>Busch R5 KB 0010</p>
+                                                                    </div>
+                                                                    <div class="row mb-0">
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details">Edit</p>
+                                                                        <p>View</p>
+                                                                        <p>Delete</p>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-category">
+                                                                    <center>
+                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
+                                                                        <br><br>
+                                                                        <div class="row mb-0">
+                                                                            <p>Endress+Hauser</p>
+                                                                        </div>
+                                                                    </center>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-sku">
+                                                                    <p>000SKU</p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-date_added">
+                                                                    <p>March 28, 2021</p>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr class="pt">
+                                                            <td>
+                                                                
+                                                                <div class="card-body pt-product">
+                                                                    <div class="row">
+                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <div class="card-body pt-name">
+                                                                    <div class="row mb-0">
+                                                                        <p>Busch R5 KB 0010</p>
+                                                                    </div>
+                                                                    <div class="row mb-0">
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details">Edit</p>
+                                                                        <p>View</p>
+                                                                        <p>Delete</p>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-category">
+                                                                    <center>
+                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
+                                                                        <br><br>
+                                                                        <div class="row mb-0">
+                                                                            <p>Endress+Hauser</p>
+                                                                        </div>
+                                                                    </center>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-sku">
+                                                                    <p>000SKU</p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-date_added">
+                                                                    <p>March 28, 2021</p>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            <div class="card-body noprod">
+                                                <center>
+                                                    <div class="card card-body col-md-2 col-sm-3 col-lg-2 col-6" onclick="toggleScreen('.addnewprod')">
+                                                        <center>
+                                                            <div class="row">
+                                                                <center>
+                                                                    <p>+</p>
+                                                                </center>
+                                                            </div>
+                                                            <div class="row">
+                                                                <center>
+                                                                    <p>Add New</p>
+                                                                </center>
+                                                            </div>
+                                                        </center>
+
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            <div class="card-body addnewprod">
+                                                <div class="row minus_padding" >
+                                                    <div class="col-3 minus_padding">
+                                                        <h5 class="float-start addnewtitle minus_padding">Add Product</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <center>
+                                                    <div class="row flex-wrap minus_padding">
+                                                        <div class="col-md-9 minus_padding">
+                                                            <div class="card-body minus_padding">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="productname" placeholder="Product name" cols="30" rows="1"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8 col-sm-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="partnumber" placeholder="Part number" cols="30" rows="1"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="SKU" placeholder="SKU" cols="30" rows="1"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="productdesc" placeholder="Product description" cols="30" rows="5"></textarea>
+                                                                            
+                                                                        </div>
+
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="productfeat" placeholder="Product features" cols="30" rows="5"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="areasofuse" placeholder="Areas of use" cols="30" rows="5"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card-body minus_padding inline">
+                                                                            <textarea name="" class="dark-bg" id="productcat" placeholder="Product Category/OEM" cols="30" rows="1"></textarea>
+                                                                            <div class="mb-0">
+                                                                                <a href="javascript:void(0);" class="btn gp-grey oem-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".oem-modal">+</a>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="producttags" placeholder="Tags - seperate with comma" cols="30" rows="1"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="card-body minus_padding">
+                                                                <div class="row minus_padding">
+                                                                    <div class="col-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            
+                                                                            <div class="dark-bg" >
+                                                                                <form action="#" id="uplimg" class="dropzone">
+                                                                                    <div class="fallback">
+                                                                                        <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onchange="validateFileType()"/>
+                                                                                    </div>
+                                                                                    <div class="dz-message needsclick">
+                                                                                        <div class="mb-1">
+                                                                                            <i class="display-4 text-muted uil uil-export"></i>
+                                                                                        </div>
+                                                                                        
+                                                                                        <h4>Upload Product Image.</h4>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="mb-3">
+                                                                            <a href="javascript:void(0);"  class="btn gp-green complete-btn waves-effect waves-light" onclick="productPageInit()">Complete</a>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </center>
+                                            </div>
+                                            <div class="card-body editprod">
+                                                <div class="row minus_padding" >
+                                                    <div class="col-3 minus_padding">
+                                                        <h5 class="float-start addnewtitle minus_padding">Edit Product</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <center>
+                                                    <div class="row flex-wrap minus_padding">
+                                                        <div class="col-md-9 minus_padding">
+                                                            <div class="card-body minus_padding">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editproductname" placeholder="Product name" cols="30" rows="1"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8 col-sm-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editpartnumber" placeholder="Part number" cols="30" rows="1"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editSKU" placeholder="SKU" cols="30" rows="1"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editproductdesc" placeholder="Product description" cols="30" rows="5"></textarea>
+                                                                            
+                                                                        </div>
+
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editproductfeat" placeholder="Product features" cols="30" rows="5"></textarea>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editareasofuse" placeholder="Areas of use" cols="30" rows="5"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card-body minus_padding inline">
+                                                                            <textarea name="" class="dark-bg" id="editproductcat" placeholder="Product Category/OEM" cols="30" rows="1"></textarea>
+                                                                            <div class="mb-0">
+                                                                                <a href="javascript:void(0);" class="btn gp-grey oem-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".oem-modal">+</a>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="card-body minus_padding">
+                                                                            <textarea name="" class="dark-bg" id="editproducttags" placeholder="Tags - seperate with comma" cols="30" rows="1"></textarea>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="card-body minus_padding">
+                                                                <div class="row minus_padding">
+                                                                    <div class="col-12">
+                                                                        <div class="card-body minus_padding">
+                                                                            
+                                                                            <div class="dark-bg" >
+                                                                                <form action="#" id="uplimg" class="dropzone">
+                                                                                    <div class="fallback">
+                                                                                        <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onchange="validateFileType()"/>
+                                                                                    </div>
+                                                                                    <div class="dz-message needsclick">
+                                                                                        <div class="mb-1">
+                                                                                            <i class="display-4 text-muted uil uil-export"></i>
+                                                                                        </div>
+                                                                                        
+                                                                                        <h4>Upload Product Image.</h4>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="mb-3">
+                                                                            <a href="javascript:void(0);"  class="btn gp-green complete-btn waves-effect waves-light" onclick="productPageInit()">Complete</a>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </center>
+                                            </div>
+                                        </center>
+                                        
 
                                     </div>
                                 </div>
                                 
                             </div>
                         </div>
-                        <!-- end page title -->
                         
                     </div> <!-- container-fluid -->
                 </div>
@@ -380,59 +983,12 @@
         </div>
         <!-- END layout-wrapper -->
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-
-                <div class="rightbar-title d-flex align-items-center px-3 py-4">
-            
-                    <h5 class="m-0 me-2">Settings</h5>
-
-                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-
-
-                <!-- Settings -->
-                <hr class="mt-0" />
-                <h6 class="text-center mb-0">Choose Layouts</h6>
-
-                <div class="p-4">
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input type="checkbox" class="form-check-input theme-choice" id="light-mode-switch" checked />
-                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
-                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">
-                    </div>
-                    <div class="form-check form-switch mb-5">
-                        <input type="checkbox" class="form-check-input theme-choice" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
-                        <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-                    </div>
-
-            
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
+        
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
+        <page style="display: none;">products</page>
+
 
         <!-- JAVASCRIPT -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
@@ -442,8 +998,36 @@
         <script src="assets/libs/node-waves/waves.min.js"></script>
         <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
         <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+        <script src="//unpkg.com/@feathersjs/client@^4.5.0/dist/feathers.js"></script>
+        <script src="//unpkg.com/socket.io-client@^2.3.0/dist/socket.io.js"></script>
+
+        <!-- Plugins js -->
+        <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
+
+        <!-- ckeditor -->
+        <script src="assets/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+
+        <!-- init js -->
+        <script src="assets/js/pages/form-editor.init.js"></script>
+
+        <!-- Required datatable js -->
+        <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+        
+
+        <!-- Responsive examples -->
+        <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+        <!-- Datatable init js -->
+        <script src="assets/js/pages/datatables.init.js"></script>
 
         <script src="assets/js/app.js"></script>
+
+        <script src="assets/js/controller.js"></script>
 
     </body>
 
