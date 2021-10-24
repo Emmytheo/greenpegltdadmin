@@ -528,10 +528,10 @@
                                                             <div class="col-12">
                                                                 <div class="card card-body justify-content-flex-start minus_padding inline float-start">
                                                                     <div class="mb-0">
-                                                                        <a href="javascript:void(0);" class="btn gp-green view-edit-btn waves-effect waves-light">Edit</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green view-edit-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".product-details" onclick="toggleScreen('.editprod')">Edit</a>
                                                                     </div>
                                                                     <div class="mb-0">
-                                                                        <a href="javascript:void(0);" class="btn gp-white oeme-cancel-btn waves-effect waves-light">Cancel</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-white oeme-cancel-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".product-details" >Cancel</a>
                                                                     </div>
                                                                     
                                                                 </div>
@@ -556,7 +556,7 @@
                                                     <tr>
                                                         <th>Product</th>
                                                         <th >Name</th>
-                                                        <th></th>
+                                                        
                                                         <th>Category</th>
                                                         <th>SKU</th>
                                                         <th>Date Added</th>
@@ -569,6 +569,50 @@
                 
                 
                                                     <tbody id="product_table">
+                                                        <!-- <tr class="pt">
+                                                            <td>
+                                                                
+                                                                <div class="card-body pt-product">
+                                                                    <div class="row">
+                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-name">
+                                                                    <div class="row mb-0">
+                                                                        <p>Busch R5 KB 0010</p>
+                                                                    </div>
+                                                                    <div class="row mb-0">
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('id')">Edit</p>
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('id')">View</p>
+                                                                        <p onclick="delprod('id')">Delete</p>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-category">
+                                                                    <center>
+                                                                        <img src="./assets/images/greenpegs/Group 1749.png"  alt="">
+                                                                    </center>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-sku">
+                                                                    <p>000SKU</p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="card-body pt-date_added">
+                                                                    <p>March 28, 2021</p>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
                                                         <tr class="pt">
                                                             <td>
                                                                 
@@ -579,15 +623,15 @@
                                                                     
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
+                                                            <td>
                                                                 <div class="card-body pt-name">
                                                                     <div class="row mb-0">
                                                                         <p>Busch R5 KB 0010</p>
                                                                     </div>
                                                                     <div class="row mb-0">
-                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details">Edit</p>
-                                                                        <p>View</p>
-                                                                        <p>Delete</p>
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('id')">Edit</p>
+                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('id')">View</p>
+                                                                        <p onclick="delprod('id')">Delete</p>
                                                                     </div>
                                                                     
                                                                     
@@ -616,55 +660,8 @@
                                                                 </div>
                                                             </td>
                                                             
-                                                        </tr>
-                                                        <tr class="pt">
-                                                            <td>
-                                                                
-                                                                <div class="card-body pt-product">
-                                                                    <div class="row">
-                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </td>
-                                                            <td colspan="2">
-                                                                <div class="card-body pt-name">
-                                                                    <div class="row mb-0">
-                                                                        <p>Busch R5 KB 0010</p>
-                                                                    </div>
-                                                                    <div class="row mb-0">
-                                                                        <p data-bs-toggle="modal" data-bs-target=".product-details">Edit</p>
-                                                                        <p>View</p>
-                                                                        <p>Delete</p>
-                                                                    </div>
-                                                                    
-                                                                    
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="card-body pt-category">
-                                                                    <center>
-                                                                        <img src="./assets/images/greenpegs/fire-pump-set1 3.png"  alt="">
-                                                                        <br><br>
-                                                                        <div class="row mb-0">
-                                                                            <p>Endress+Hauser</p>
-                                                                        </div>
-                                                                    </center>
-                                                                    
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="card-body pt-sku">
-                                                                    <p>000SKU</p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="card-body pt-date_added">
-                                                                    <p>March 28, 2021</p>
-                                                                </div>
-                                                            </td>
-                                                            
-                                                        </tr>
+                                                        </tr> -->
+                                                        
                                                         
                                                         
                                                     
@@ -967,7 +964,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Greenpeg.
+                                <p id="note">© <script>document.write(new Date().getFullYear())</script> Greenpeg Admin. Crafted with <i class="uil uil-heart text-danger"></i> by TheSoleCompany</p>
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
@@ -1011,6 +1008,7 @@
 
         <!-- init js -->
         <script src="assets/js/pages/form-editor.init.js"></script>
+        <script src="assets/js/controller.js"></script>
 
         <!-- Required datatable js -->
         <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -1027,7 +1025,7 @@
 
         <script src="assets/js/app.js"></script>
 
-        <script src="assets/js/controller.js"></script>
+        
 
     </body>
 

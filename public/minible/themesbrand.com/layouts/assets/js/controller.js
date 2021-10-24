@@ -1,5 +1,4 @@
 
-
 const socket = io();
 // Initialize our Feathers client application through Socket.io
 // with hooks and authentication.
@@ -14,6 +13,7 @@ var cardnum = '';
 var timer, count = '';
 var memory = '';
 const requestsService = client.service('requests');
+const productsService = client.service('products');
 
 
 // console.log(page)
@@ -84,7 +84,7 @@ const login = async credentials => {
             }
             default:{
                 note.innerHTML = error;
-                console.log(error)
+                // console.log(error)
                 
                 break;
             }
@@ -112,6 +112,7 @@ addEventListener('#signup', 'click', async () => {
     // First create the user
     await client.service('users').create(credentials);
     // If successful log them in
+    window.location.assign("auth-login.html");
     await login(credentials);
     
     // user = credentials;
@@ -177,7 +178,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -189,7 +190,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -201,7 +202,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -213,7 +214,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -225,7 +226,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   {
@@ -237,7 +238,7 @@ var requests = [
     'date': 'May 14, 2021',
     'time': '1:54',
     'subject': 'Request Subject',
-    'image': 'assets/images/layouts/layout-1.jpg',
+    'image': './assets/images/greenpegs/fire-pump-set1 3.png',
     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo quidem aut sequi tenetur delectus ab maiores voluptas nulla, sint quae architecto ullam officia ipsa laudantium nemo aliquam mollitia est',
   },
   
@@ -246,7 +247,20 @@ var requests = [
 ];
 
 var products = [
-  {}
+  {
+    'productimg': './assets/images/greenpegs/fire-pump-set1 3.png',
+    'productname': 'Busch R5 KB 0010',
+    'catlogo': './assets/images/greenpegs/Group 1749.png',
+    'sku': '000SKU',
+    'dateAdded': 'March 28, 2021'
+  },
+  {
+    'productimg': './assets/images/greenpegs/fire-pump-set1 3.png',
+    'productname': 'Busch R5 KB 0010',
+    'catlogo': './assets/images/greenpegs/Group 1749.png',
+    'sku': '000SKU',
+    'dateAdded': 'March 28, 2021'
+  }
 ]
 
 
@@ -309,33 +323,26 @@ var render = function(page, component, data, parent){
           var index = 0;
           html = '';
           for(var t = 0; t < data.length; t++){
-            html += `<tr class="accordion" role="row" onclick="toge(this, '`;
+            html += `<tr class="pt"><td><div class="card-body pt-product"><div class="row"><img src="`;
+            html += data[t].productimg;
+            html += `"  alt=""></div></div></td><td><div class="card-body pt-name"><div class="row mb-0"><p>`;
+            html += data[t].productname;
+            html += `</p></div><div class="row mb-0"><p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('`
             html += data[t]._id;
-            html += `')"><td class="sorting_1 dtr-control">`;
-            html += data[t].name;
-            html += `<div class="card-body opt"><h5>`
-            html += data[t]['shrt-name'];
-            html += `</h5><span class="req-datetime"><p>`
-            html += data[t].date;
-            html += `</p><p> `
-            html += data[t].time;
-            html += `</p></span></div></td><td class="max">`
-            html += data[t].company;
-            html += `<div class="card-body opt"><div class="row"><div class="col-md-8"><h5>`;
-            html += data[t].subject;
-            html += `</h5><p>`;
-            html += data[t].content;
-            html += `</p><center><div class="mb-3"><a href="javascript:void(0);" class="btn gp-green replynow-btn waves-effect waves-light" data-bs-toggle="modal" onclick="replynw('`;
+            html += `')">Edit</p><p data-bs-toggle="modal" data-bs-target=".product-details" onclick="showprod('`
             html += data[t]._id;
-            html += `')" data-bs-target=".bs-example-modal-center">Reply Now</a></div></center></div><div class="col-md-4"><div class="card card-body"><img src="`
-            html += data[t].image;
-            html += `" alt="" srcset=""></div></div></div></div></td><td class="min">`
-            html += data[t].phone;
-            html += `<div class="card-body opt"></div></td><td class="min">`;
-            html += data[t].email;
-            html += `<div class="card-body opt"></div></td></tr>`
+            html += `')">View</p><p onclick="delprod('`
+            html += data[t]._id;
+            html += `')">Delete</p></div></div></td><td><div class="card-body pt-category"><center><img src="`
+            html += data[t].catlogo;
+            html += `"  alt=""></center></div></td><td><div class="card-body pt-sku"><p>`;
+            html += data[t].sku;
+            html += `</p></div></td><td><div class="card-body pt-date_added"><p>`;
+            html += data[t].dateAdded;
+            html += `</p></div></td></tr>`
           }
           parent.innerHTML = html;
+          // $("#datatable").DataTable();
           break;
         }
         default: {
@@ -372,12 +379,12 @@ switch(page){
       requestsService.find().then( req => {
         memory = req;
         render('request', 'request-table', req, 'request_table');
-        $("#datatable").DataTable();
+        
         
         // console.log(memory[0]._id);
       });
 
-      // render('request', 'request-table', requests, 'request_table');
+      
 
 
       
@@ -387,6 +394,19 @@ switch(page){
 
     case 'products': {
       productPageInit();
+      // $("#datatable").DataTable();
+      productsService.find().then( req => {
+        memory = req;
+        render('product', 'product-table', req, 'product_table');
+        
+        
+        // console.log(memory[0]._id);
+      });
+      
+
+
+      
+
 
       break;
     }
@@ -593,7 +613,8 @@ function productPageInit(){
   else{
     crd[0].style.display = 'block';
   }
-  $("#datatable").DataTable();
+  
+  // $("#datatable").DataTable();
   
 }
 
@@ -606,7 +627,7 @@ function toggleScreen(screen){
       console.log(cnt);
       if(card.split('.')[0] == ''){
         var crde = document.getElementsByClassName(card.split('.')[1]);
-        console.log(crde[0]);
+        // console.log(crde[0]);
         crd.push(crde[0]);
         crde[0].style.display = 'none';
       }
@@ -624,6 +645,10 @@ function toggleScreen(screen){
   else{
     crd[1].style.display = 'block';
   }
+}
+
+function showprod(id){
+  console.log(id);
 }
 
 

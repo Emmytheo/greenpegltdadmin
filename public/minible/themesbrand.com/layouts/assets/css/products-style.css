@@ -331,6 +331,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
     margin: 1px 5px;
 }
 
+/*Product table*/
+
 .product-table{
     display: none;
     
@@ -348,14 +350,18 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 
 .pt-sku > p, .pt-date_added > p{
     font-family: Product Sans;
-    font-style:normal;
-    font-weight: 550;
-    color: #6A7D8E !important;
+    font-style: normal;
+    font-weight: normal;
     font-size: 16px;
+    line-height: 19px;
+    
+    /* gp-darker-grey */
+    
+    color: #6A7D8E;
 }
 
 .pt-category img{
-    width: 50px;
+    width: 80px;
 }
 .pt-product{
     border: 1px solid #6a7d8e23;
@@ -371,12 +377,14 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 }
 .pt-name > .row:nth-child(1) p{
     font-family: Product Sans;
-    font-style:normal;
-    font-weight: 550;
-    color: #6A7D8E !important;
-    font-size: 18px;
-    word-break: keep-all;
-    padding: 0px 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    
+    /* gp-darker-grey */
+    
+    color: #6A7D8E;
     
 
 }
@@ -387,13 +395,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
 }
 .pt-name > .row:nth-child(2) p{
     font-family: Product Sans;
-    font-style:normal;
+    font-style: normal;
     font-weight: normal;
-    color: #6A7D8E !important;
-    font-size: 13px;
+    font-size: 11px;
+    line-height: 13px;
     display: inline;
-    padding: 0px 0px;
-    margin-left: 5px;
+    color: rgba(106, 125, 142, 0.7);
+    /* margin-left: 5px; */
 
 
 

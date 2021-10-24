@@ -1,15 +1,15 @@
-// Initializes the `requests` service on path `/requests`
-const { Requests } = require('./requests.class');
-const hooks = require('./requests.hooks');
+// Initializes the `products` service on path `/products`
+const { Products } = require('./products.class');
+const hooks = require('./products.hooks');
 
 module.exports = function (app) {
   const options = {
     // paginate: app.get('paginate')
   };
-  const requests = new Requests(options, app);
+  const products = new Products(options, app);
 
-  requests.docs = {
-    description: 'A request management endpoint',
+  products.docs = {
+    description: 'A products management endpoint',
     definitions: {
       requests: {
         "type": "object",
@@ -36,10 +36,10 @@ module.exports = function (app) {
     securities: ['find', 'create', 'get', 'update', 'patch', 'remove'],
   }
   // Initialize our service with any options it requires
-  app.use('/requests', requests);
+  app.use('/products', products);
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('requests');
+  const service = app.service('products');
 
   service.hooks(hooks);
 };
