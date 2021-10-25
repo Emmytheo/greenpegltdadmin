@@ -379,6 +379,7 @@ switch(page){
       requestsService.find().then( req => {
         memory = req;
         render('request', 'request-table', req, 'request_table');
+        $("#datatable").DataTable();
         
         
         // console.log(memory[0]._id);
@@ -398,6 +399,7 @@ switch(page){
       productsService.find().then( req => {
         memory = req;
         render('product', 'product-table', req, 'product_table');
+        $("#datatable").DataTable();
         
         
         // console.log(memory[0]._id);
@@ -592,7 +594,7 @@ function productPageInit(){
       console.log(cnt);
       if(card.split('.')[0] == ''){
         var crde = document.getElementsByClassName(card.split('.')[1]);
-        console.log(crde[0]);
+        // console.log(crde[0]);
         crd.push(crde[0]);
         crde[0].style.display = 'none';
       }
