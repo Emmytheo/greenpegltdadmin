@@ -12,6 +12,8 @@ var togg = false;
 var cardnum = '';
 var timer, count = '';
 var memory = '';
+var prod_id = '';
+var prod = '';
 const requestsService = client.service('requests');
 const productsService = client.service('products');
 
@@ -84,6 +86,9 @@ const login = async credentials => {
             }
             default:{
                 note.innerHTML = error;
+                if(error == "Error: Cannot read property 'find' of undefined"){
+                  location.reload();
+                }
                 // console.log(error)
                 
                 break;
@@ -250,17 +255,17 @@ var products = [
   {
     'productimg': './assets/images/greenpegs/fire-pump-set1 3.png',
     'productname': 'Busch R5 KB 0010',
-    'catlogo': './assets/images/greenpegs/Group 1749.png',
     'sku': '000SKU',
-    'dateAdded': 'March 28, 2021'
+    'dateAdded': 'March 28, 2021',
+    'product_cat': 'Oil and Gas',
+    'part_num' : '91047126TKIWYSVBAG91047126',
+    'oem_logo': './assets/images/greenpegs/Group 1749.png',
+    'oem_name': 'Endress and Hauser',
+    'productdesc': '',
+    'productfeat': '',
+    'areasofuse': ''
   },
-  {
-    'productimg': './assets/images/greenpegs/fire-pump-set1 3.png',
-    'productname': 'Busch R5 KB 0010',
-    'catlogo': './assets/images/greenpegs/Group 1749.png',
-    'sku': '000SKU',
-    'dateAdded': 'March 28, 2021'
-  }
+  
 ]
 
 
@@ -334,7 +339,7 @@ var render = function(page, component, data, parent){
             html += `')">View</p><p onclick="delprod('`
             html += data[t]._id;
             html += `')">Delete</p></div></div></td><td><div class="card-body pt-category"><center><img src="`
-            html += data[t].catlogo;
+            html += data[t].oem_logo;
             html += `"  alt=""></center></div></td><td><div class="card-body pt-sku"><p>`;
             html += data[t].sku;
             html += `</p></div></td><td><div class="card-body pt-date_added"><p>`;
@@ -535,7 +540,6 @@ async function replynw(ele){
   var replyto = document.getElementsByClassName('replyto');
   var replyfrom = document.getElementById('replyfrom');
   var reply_sub = document.getElementById('reply_sub');
-  console.log(ele);
   var request = await requestsService.get(ele);
   for(var h = 0; h < replyto.length; h++){
     console.log(request.email);
@@ -544,6 +548,47 @@ async function replynw(ele){
   replyfrom.innerText = 'olomije.ezekiel@greenpegltd.com';
   reply_sub.value = 'Request Subject';
 }
+async function showprod(ele){
+  prod_id = ele;
+  var productname = document.getElementById('productname');
+  var part_num = document.getElementById('part_num');
+  var product_cat = document.getElementById('product_cat');
+  var sku = document.getElementById('sku');
+  var product = await productsService.get(ele);
+  productname.innerText = product.productname;
+  part_num.innerText = product.part_num;
+  product_cat.innerText = product.product_cat;
+  sku.innerText = product.sku;
+}
+async function editprod(){
+  if(prod_id.length > 23){
+    var product = await productsService.get(prod_id);
+    if(product){
+      toggleScreen('.editprod');
+        var editproductname = document.getElementById('editproductname');
+        var editpartnumber = document.getElementById('editpartnumber');
+        var editSKU = document.getElementById('editSKU');
+        var editproductdesc = document.getElementById('editproductdesc');
+        var editproductfeat = document.getElementById('editproductfeat');
+        var editareasofuse = document.getElementById('editareasofuse');
+        var editproductcat = document.getElementById('editproductcat');
+        var editproducttags = document.getElementById('editproducttags');
+        editproductname.value = product.productname;
+        editpartnumber.value = product.part_num;
+        editSKU.value = product.sku;
+        editproductdesc.value = product.productdesc;
+        editproductfeat.value = product.productfeat;
+        editareasofuse.value = product.areasofuse;
+        editproductcat.value = product.product_cat + ' / ' + product.oem_name;
+        editproducttags.value = product.editproducttags;
+      
+    }
+  }
+  else{
+
+  }
+}
+
 
 
 function validateFileType(){
@@ -649,9 +694,7 @@ function toggleScreen(screen){
   }
 }
 
-function showprod(id){
-  console.log(id);
-}
+
 
 
 

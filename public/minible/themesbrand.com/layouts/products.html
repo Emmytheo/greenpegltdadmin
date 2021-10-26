@@ -478,7 +478,8 @@
                                                                                 
                                                                                 <img src="./assets/images/greenpegs/fire-pump-set1 3.png" alt="">
                                                                                 <br><br>
-                                                                                <h6>Image Caption</h6>
+                                                                                <img class="manu_logo" src="" alt="Image Caption">
+                                                                                
                                                                             </center>
                                                                         </div>
                                                                         
@@ -490,27 +491,27 @@
                                                                 <div class="card card-body minus_padding minus_margin view-prod-details">
                                                                     <div class="row">
                                                                         <div class="card-body  minus_padding ">
-                                                                            <h1>Dosing Pump</h1>
+                                                                            <h1 id="productname" >Dosing Pump</h1>
                                                                         </div>
 
                                                                     </div>
-                                                                    <div class="row">
+                                                                    <div class="row" style="width: 100%">
                                                                         <div class="col-12">
                                                                             <div class="card-body minus_padding ">
                                                                                 <div class="row">
 
                                                                                     <p class="mb-0">Part number:</p>
-                                                                                    <h5 class="mb-3">91047126TKIWYSVBAG91047126</h5>
+                                                                                    <h5 class="mb-3" id="part_num">91047126TKIWYSVBAG91047126</h5>
     
                                                                                 </div>
                                                                                 <div class="row">
                                                                                     <p class="mb-0">Product category:</p>
-                                                                                    <h5 class="mb-3">Oil & Gas</h5>
+                                                                                    <h5 class="mb-3" id="product_cat" >Oil & Gas</h5>
     
                                                                                 </div>
                                                                                 <div class="row">
                                                                                     <p class="mb-0">SKU</p>
-                                                                                    <h5 class="mb-3">91047126</h5>
+                                                                                    <h5 class="mb-3" id="sku" >91047126</h5>
     
                                                                                 </div>
     
@@ -528,7 +529,7 @@
                                                             <div class="col-12">
                                                                 <div class="card card-body justify-content-flex-start minus_padding inline float-start">
                                                                     <div class="mb-0">
-                                                                        <a href="javascript:void(0);" class="btn gp-green view-edit-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".product-details" onclick="toggleScreen('.editprod')">Edit</a>
+                                                                        <a href="javascript:void(0);" class="btn gp-green view-edit-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".product-details" onclick="editprod()">Edit</a>
                                                                     </div>
                                                                     <div class="mb-0">
                                                                         <a href="javascript:void(0);" class="btn gp-white oeme-cancel-btn waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".product-details" >Cancel</a>
@@ -822,7 +823,7 @@
                                             </div>
                                             <div class="card-body editprod">
                                                 <div class="row minus_padding" >
-                                                    <div class="col-3 minus_padding">
+                                                    <div class="col-md-3 minus_padding">
                                                         <h5 class="float-start addnewtitle minus_padding">Edit Product</h4>
                                                     </div>
                                                     
