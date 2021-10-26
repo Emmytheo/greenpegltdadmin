@@ -87,7 +87,7 @@ const login = async credentials => {
             default:{
                 note.innerHTML = error;
                 if(error == "Error: Cannot read property 'find' of undefined"){
-                  location.reload();
+                  window.location.reload();
                 }
                 // console.log(error)
                 
