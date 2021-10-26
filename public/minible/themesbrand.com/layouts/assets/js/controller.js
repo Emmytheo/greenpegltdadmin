@@ -254,6 +254,7 @@ var requests = [
 var products = [
   {
     'productimg': './assets/images/greenpegs/fire-pump-set1 3.png',
+    'productmanulogo': './assets/images/greenpegs/Group 1756.png',
     'productname': 'Busch R5 KB 0010',
     'sku': '000SKU',
     'dateAdded': 'March 28, 2021',
@@ -385,9 +386,6 @@ switch(page){
         memory = req;
         render('request', 'request-table', req, 'request_table');
         $("#datatable").DataTable();
-        
-        
-        // console.log(memory[0]._id);
       });
 
       
@@ -409,6 +407,7 @@ switch(page){
         
         // console.log(memory[0]._id);
       });
+      
       
 
 
@@ -588,6 +587,21 @@ async function editprod(){
 
   }
 }
+async function delprod(id){
+  var r = confirm("Are you sure you want to delete this product!");
+  if (r == true) {
+    productsService.remove(id).then(res => {
+      productsService.find().then( req => {
+        productPageInit();
+        memory = req;
+        render('product', 'product-table', req, 'product_table');
+        $("#datatable").DataTable();
+      });
+    });
+  } else {
+  }
+
+}
 
 
 
@@ -654,14 +668,18 @@ function productPageInit(){
     
     
   })
-  if(products.length < 1){
+  productsService.find().then(prdss => {
+    if(prdss.length < 1 && typeof(prdss) !== 'array'){
       crd[1].style.display = 'block';
-  }
-  else{
-    crd[0].style.display = 'block';
-  }
+    }
+    else{
+      crd[0].style.display = 'block';
+    }
+  });
   
-  // $("#datatable").DataTable();
+  
+  
+  
   
 }
 
@@ -694,11 +712,97 @@ function toggleScreen(screen){
   }
 }
 
+async function prodUpdate(){
+  if(prod_id.length > 23){
+    var editproductname = document.getElementById('editproductname');
+    var editpartnumber = document.getElementById('editpartnumber');
+    var editSKU = document.getElementById('editSKU');
+    var editproductdesc = document.getElementById('editproductdesc');
+    var editproductfeat = document.getElementById('editproductfeat');
+    var editareasofuse = document.getElementById('editareasofuse');
+    var editproductcat = document.getElementById('editproductcat');
+    var editproducttags = document.getElementById('editproducttags');
+    var data = {
+      // "productimg" : ,
+      // "productmanulogo" : ,
+      "productname" : editproductname.value,
+      "sku" : editSKU.value,
+      // "dateAdded" : ,
+      "product_cat" : editproductcat.value.split('/')[0],
+      "part_num" : editpartnumber.value,
+      // "oem_logo" : ,
+      "oem_name" : editproductcat.value.split('/')[1],
+      "productdesc" : editproductdesc.value,
+      "productfeat" : editproductfeat.value,
+      "areasofuse" : editareasofuse.value,
+      "tags" : editproducttags.value
+
+    };
+    productsService.patch(prod_id, data).then(y => {
+      productsService.find().then( req => {
+        productPageInit();
+        memory = req;
+        render('product', 'product-table', req, 'product_table');
+        $("#datatable").DataTable();
+        window.location.reload();
+      });
+    });
+    
+    
+    
+    
+    
+    
+  }
+  else{
+
+  }
+
+}
+
+
+async function addprod(){
+  var productname = document.getElementById('productname');
+  var partnumber = document.getElementById('partnumber');
+  var prod_SKU = document.getElementById('SKU');
+  var productdesc = document.getElementById('productdesc');
+  var productfeat = document.getElementById('productfeat');
+  var areasofuse = document.getElementById('areasofuse');
+  var productcat = document.getElementById('productcat');
+  var producttags = document.getElementById('producttags');
+  var data = {
+      // "productimg" : ,
+      // "productmanulogo" : ,
+      "productname" : productname.value,
+      "sku" : prod_SKU.value,
+      // "dateAdded" : ,
+      "product_cat" : productcat.value.split('/')[0],
+      "part_num" : partnumber.value,
+      // "oem_logo" : ,
+      "oem_name" : productcat.value.split('/')[1],
+      "productdesc" : productdesc.value,
+      "productfeat" : productfeat.value,
+      "areasofuse" : areasofuse.value,
+      "tags" : producttags.value
+
+  };
+  productsService.create(data).then(y => {
+      productsService.find().then( req => {
+        productPageInit();
+        memory = req;
+        render('product', 'product-table', req, 'product_table');
+        $("#datatable").DataTable();
+        window.location.reload();
+      });
+    });
+
+
+}
 
 
 
 
 function dtInit(){
   $("#datatable").DataTable()
-  // $("#datatable").DataTable(),$("#datatable-buttons").DataTable({lengthChange:!1,buttons:["copy","excel","pdf","colvis"]}).buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),$(".dataTables_length select").addClass("form-select form-select-sm");
+  
 }
